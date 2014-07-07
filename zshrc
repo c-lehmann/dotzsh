@@ -9,11 +9,10 @@ for zsh_file ($ZSH/lib/*.zsh); do
   source $zsh_file
 done
 
-export PATH=/usr/local/share/npm/bin:/Applications/SenchaSDKTools-2.0.0-Beta/bin:$HOME/bin:$PATH
-
-export ANDROID_SDK_HOME=$HOME/android-sdks
-
-export PATH=$HOME/Development/cordova/node_modules/cordova/bin:$ANDROID_SDK_HOME/tools:$ANDROID_SDK_HOME/platform-tools:$HOME/bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin
+if [ -f $ZSH/exports.zsh ]
+then
+	source $ZSH/exports.zsh # Importing working related exports
+fi
 
 eval "$(rbenv init -)"
 
@@ -36,7 +35,18 @@ zle -N self-insert url-quote-magic
 #autoload run-help
 #HELPDIR=/usr/local/share/zsh/helpfiles
 
-PROMPT="%{$fg[cyan]%}[%T]%{$reset_color%} %n@%M:%3c
-%{$fg[green]%}=>%{$reset_color%} "
+setopt prompt_subst
+autoload -U promptinit
+promptinit
+
+setopt prompt_subst
+
+PROMPT='%{$g[cyan]%}[%T]%{$reset_color%} %n@%M:%3c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}
+%{$fg[green]%}=>%{$reset_color%} '
+
+ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 bindkey '^[[Z' reverse-menu-complete
