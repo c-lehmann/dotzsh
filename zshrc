@@ -1,3 +1,5 @@
+eval "$(rbenv init -)"
+
 export ZSH=$HOME/.zsh
 export PAGER=vimpager
 
@@ -9,18 +11,10 @@ for zsh_file ($ZSH/lib/*.zsh); do
   source $zsh_file
 done
 
-if [ -f $ZSH/exports.zsh ]
-then
-	source $ZSH/exports.zsh # Importing working related exports
-fi
-
-eval "$(rbenv init -)"
-
 autoload -U colors && colors
 unset LSCOLORS
 export CLICOLOR=1
 export LS_COLORS=gxfxcxdxbxegedabagacad
-
 
 # Load and run compinit
 autoload -U compinit
@@ -41,8 +35,8 @@ promptinit
 
 setopt prompt_subst
 
-PROMPT='%{$g[cyan]%}[%T]%{$reset_color%} %n@%M:%3c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}
-%{$fg[green]%}=>%{$reset_color%} '
+PROMPT='%{$FG[238]%}[%T]%{$FG[232]%} in %{$FG[192]%}%3c %{$fg[blue]%}$(git_prompt_info)%{$fg[blue]%}
+%{$fg[green]%}$%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
