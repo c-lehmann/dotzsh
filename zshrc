@@ -35,8 +35,8 @@ promptinit
 
 setopt prompt_subst
 
-PROMPT='%{$FG[238]%}[%T]%{$FG[232]%} in %{$FG[192]%}%3c %{$fg[blue]%}$(git_prompt_info)%{$fg[blue]%}
-%{$fg[green]%}$%{$reset_color%} '
+PROMPT='in %{$FG[192]%}%3c %{$fg[blue]%}$(git_prompt_info)%{$fg[blue]%}
+%{$reset_color%}$%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -44,3 +44,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 bindkey '^[[Z' reverse-menu-complete
+
+alias ll="ls -la"
+
+#source /usr/local/share/zsh/site-functions/_youtube-dl
