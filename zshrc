@@ -9,7 +9,15 @@ HISTFILE=$ZSH/history
 HISTSIZE=10000
 SAVEHIST=10000
 
+autoload -U compaudit
+
 for zsh_file ($ZSH/lib/*.zsh); do
+  source $zsh_file
+done
+
+handle_completion_insecurities()
+
+for zsh_file ($ZSH/plugins/*.zsh); do
   source $zsh_file
 done
 
