@@ -54,7 +54,7 @@ bindkey '^[[Z' reverse-menu-complete
 alias ll="ls -la"
 
 # Adding android-sdk-bins
-export PATH=$HOME/Development/SDK/android-sdk-macosx/tools:$HOME/Development/SDK/android-sdk-macosx/platform-tools:$PATH
+export PATH=$HOME/Development/android-sdk-macosx/tools:$HOME/Development/android-sdk-macosx/platform-tools:$PATH
 
 #source /usr/local/share/zsh/site-functions/_youtube-dl
 source $ZSH/plugins/git.zsh
