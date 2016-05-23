@@ -15,11 +15,6 @@ for zsh_file ($ZSH/lib/*.zsh); do
   source $zsh_file
 done
 
-handle_completion_insecurities()
-
-for zsh_file ($ZSH/plugins/*.zsh); do
-  source $zsh_file
-done
 
 autoload -U colors && colors
 unset LSCOLORS
@@ -62,3 +57,4 @@ alias ll="ls -la"
 export PATH=$HOME/Development/SDK/android-sdk-macosx/tools:$HOME/Development/SDK/android-sdk-macosx/platform-tools:$PATH
 
 #source /usr/local/share/zsh/site-functions/_youtube-dl
+source $ZSH/plugins/git.zsh
